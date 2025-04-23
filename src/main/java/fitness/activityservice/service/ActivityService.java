@@ -15,7 +15,14 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ActivityService {
     private final ActivityRepository activityRepository;
+    private  final UserValidationService userValidationService;
      public ActivityResponse trackActivity(ActivityRequest activityRequest){
+
+         boolean isValidUserId = validateUserId(activityRequest.getUserId());
+
+         if(!isValidUserId) {
+             throw new RuntimeException("Invalid User: "+ activityRequest.getUserId());
+         }
          Activity activity = Activity.builder().userId(activityRequest.getUserId()).type(activityRequest.getType()).duration(activityRequest.getDuration()).startTime(activityRequest.getStartTime()).caloriesBurned(activityRequest.getCaloriesBurned()).additionalMetrics(activityRequest.getAdditionalMetrics()).build();
 
          Activity savedActivity = activityRepository.save(activity);
@@ -40,5 +47,17 @@ public class ActivityService {
     public List<ActivityResponse> getUserActivities(String userId) {
          List<Activity> activities = activityRepository.findByUserId(userId);
          return activities.stream().map(this::mapToResponse).collect(Collectors.toList());
+    }
+
+
+
+    public ActivityResponse getActivityById(String activityId) {
+         return activityRepository.findById(activityId).map(this::mapToResponse).orElseThrow(()-> new RuntimeException("Activity not found with ID " + activityId));
+
+    }
+
+    //This methods calls the user micro service to check if userId is valid
+    public boolean validateUserId (String userId) {
+         return userValidationService.validateUsesrId(userId);
     }
 }
