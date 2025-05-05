@@ -1,10 +1,9 @@
-package fitness.activityservice.service;
+package com.fitness.activityservice.service;
 
-import fitness.activityservice.ActivityRepository;
-import fitness.activityservice.dto.ActivityRequest;
-import fitness.activityservice.dto.ActivityResponse;
-import fitness.activityservice.model.Activity;
-import lombok.AllArgsConstructor;
+import com.fitness.activityservice.ActivityRepository;
+import com.fitness.activityservice.dto.ActivityRequest;
+import com.fitness.activityservice.dto.ActivityResponse;
+import com.fitness.activityservice.model.Activity;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

@@ -1,6 +1,6 @@
-package fitness.activityservice.dto;
+package com.fitness.activityservice.dto;
 
-import fitness.activityservice.model.ActivityType;
+import com.fitness.activityservice.model.ActivityType;
 import lombok.Data;
 
 import java.time.LocalDateTime;

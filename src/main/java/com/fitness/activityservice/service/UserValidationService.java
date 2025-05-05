@@ -1,4 +1,4 @@
-package fitness.activityservice.service;
+package com.fitness.activityservice.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

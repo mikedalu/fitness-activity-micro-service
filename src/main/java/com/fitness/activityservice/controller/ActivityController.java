@@ -1,9 +1,8 @@
-package fitness.activityservice.controller;
+package com.fitness.activityservice.controller;
 
-import fitness.activityservice.dto.ActivityRequest;
-import fitness.activityservice.dto.ActivityResponse;
-import fitness.activityservice.service.ActivityService;
-import jakarta.websocket.server.PathParam;
+import com.fitness.activityservice.dto.ActivityRequest;
+import com.fitness.activityservice.dto.ActivityResponse;
+import com.fitness.activityservice.service.ActivityService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
